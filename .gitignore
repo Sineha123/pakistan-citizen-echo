@@ -51,3 +51,9 @@ Thumbs.db
 .tempmediaStorage/
 *.log
 scratch/
+
+# Agent & Workspace Tooling Folders
+.agent/
+.agents/
+.gemini/
+.gsd/

@@ -1,7 +1,7 @@
-# 🇵🇰 Hyderabad Citizen Echo (Team Quantum) — Autonomous Civic Intelligence Platform
+# Hyderabad Citizen Echo (Team Quantum) — Autonomous Civic Intelligence Platform
 
 <p align="center">
-  <img src="assets/logo.png" width="320" alt="Hyderabad Citizen Echo Cybernetic Intelligence Logo" style="border-radius: 28px; box-shadow: 0 16px 40px rgba(0,0,0,0.6);" />
+  <img src="assets/logo.png" width="280" alt="Hyderabad Citizen Echo Intelligence Logo" style="border-radius: 24px; box-shadow: 0 16px 40px rgba(0,0,0,0.6);" />
 </p>
 
 <p align="center">
@@ -19,10 +19,10 @@
 
 ---
 
-## 🖥️ Platform Interface Preview
+## Platform Interface Preview
 
 <p align="center">
-  <img src="assets/dashboard_preview.png" width="100%" alt="Hyderabad Citizen Echo Cybernetic Interface" />
+  <img src="assets/dashboard_preview.png" width="100%" alt="Hyderabad Citizen Echo Interface" />
 </p>
 
 <p align="center">
@@ -31,153 +31,159 @@
 
 ---
 
-## 📑 Table of Contents
-1. [Platform Interface Preview](#-platform-interface-preview)
-2. [Overview & Problem Statement](#-overview--problem-statement)
-3. [High-Level Architecture](#-high-level-architecture)
-4. [The 4 Chrome Extensions](#-the-4-chrome-extensions)
-5. [Interactive Node Canvas & Cyber HUD](#-interactive-node-canvas--cyber-hud)
-6. [Quick Start (One-Command Runner)](#-quick-start-one-command-runner)
-7. [Real-World Operating Workflow](#-real-world-operating-workflow)
-8. [Priority Intercept (Custom User Queries)](#-priority-intercept-custom-user-queries)
-9. [Database Schema & API Reference](#-database-schema--api-reference)
-10. [Proprietary License](#-proprietary-license)
+## Table of Contents
+1. [Overview and Problem Statement](#overview-and-problem-statement)
+2. [High-Level Architecture](#high-level-architecture)
+3. [The 4 Chrome Extensions](#the-4-chrome-extensions)
+4. [Interactive Node Canvas and Radar HUD](#interactive-node-canvas-and-radar-hud)
+5. [Quick Start (One-Command Runner)](#quick-start-one-command-runner)
+6. [Real-World Operating Workflow](#real-world-operating-workflow)
+7. [Priority Intercept (Custom User Queries)](#priority-intercept-custom-user-queries)
+8. [Database Schema and API Reference](#database-schema-and-api-reference)
+9. [Automated Testing and Validation](#automated-testing-and-validation)
+10. [Engineering Team and Contributors](#engineering-team-and-contributors)
+11. [Proprietary License](#proprietary-license)
 
 ---
 
-## 🏛️ Overview & Problem Statement
+## Overview and Problem Statement
 
-Public administration across Hyderabad, Sindh (*Qasimabad, Latifabad, City / Saddar, Paretabad, Tando Jam*) faces persistent civic challenges—monsoonal flooding, overflowing WASA sewage lines on Autobahn Road, Liaquat University Hospital (LUH / Civil Hospital) medical supply shortages, HESCO electricity breakdowns and 12–16 hour load-shedding, potholed roads, and uncollected municipal solid waste. Citizens voice these grievances daily across vernacular and national portals (*Daily Express Sindh, Daily Jang, Dawn News, Kawish, Daily Ibrat*), yet civic authorities lack a single unified real-time intelligence feed.
+Public administration across Hyderabad, Sindh (*Qasimabad, Latifabad, City / Saddar, Paretabad, Tando Jam*) faces persistent municipal and infrastructure challenges:
+- Monsoonal urban flooding and overflowing WASA sewage conduits along commercial corridors (Autobahn Road, Thandi Sarak).
+- Liaquat University Hospital (LUH / Civil Hospital) emergency medicine shortages and patient throughput bottlenecks.
+- HESCO power distribution failures, frequent transformer trip-outs, and prolonged 12–16 hour load-shedding cycles.
+- Deteriorated road surfaces, unpaved arterial streets, and uncollected municipal solid waste managed by HMC and SSWMB.
 
-**Hyderabad Citizen Echo** solves this by bridging client-side web scraping, browser extension automation, asynchronous Python backend orchestration, and DeepSeek AI reasoning into an intuitive cybernetic canvas.
+While citizens routinely voice these grievances across regional news portals (*Daily Express Sindh, Daily Jang, Dawn News, Kawish, Daily Ibrat*), municipal authorities historically lack a centralized, real-time intelligence telemetry pipeline.
+
+**Hyderabad Citizen Echo** addresses this gap by combining client-side distributed web crawlers, Chrome Manifest V3 browser automation, asynchronous Python backend orchestration, and DeepSeek Large Language Model reasoning into a single visual telemetry canvas.
 
 ---
 
-## ⚡ High-Level Architecture
+## High-Level Architecture
 
 ```
-                                  ┌────────────────────────────────────────────────────────┐
-                                  │            PYTHON FASTAPI ORCHESTRATOR                │
-                                  │             (Port 8000 // WebSocket Hub)              │
-                                  │  - Central State & Flow Pipeline Engine               │
-                                  │  - SQLite Async DB (grievance_hyderabad.db)           │
-                                  │  - WebSocket Hub (/ws/hub) bi-directional broadcast   │
-                                  │  - Dynamic Extension Auto-Discovery & Health Checks  │
-                                  │  - Priority Intercept & Custom DeepSeek Dispatcher    │
-                                  └───────────────────────────┬────────────────────────────┘
-                                                              │
-                    ┌─────────────────────────┬───────────────┴───────────────┬─────────────────────────┐
-                    │ WebSocket               │ WebSocket                     │ WebSocket               │ WebSocket
-                    ▼                         ▼                               ▼                         ▼
-┌───────────────────────────────┐ ┌───────────────────────────────┐ ┌───────────────────────────────┐ ┌───────────────────────────────┐
-│     CHROME EXTENSION 1        │ │     CHROME EXTENSION 2        │ │     CHROME EXTENSION 3        │ │     CHROME EXTENSION 4        │
-│   Hyderabad News Scraper      │ │    DeepSeek AI Automator      │ │   Civic Severity Analyzer     │ │  Regional Fact-Checker Ext    │
-│  - Multi-tab scraping loop    │ │  - Injected DOM controller    │ │  - Civic hazard scoring       │ │  - Cross-verifies claims      │
-│  - Traverses new links        │ │    into chat.deepseek.com     │ │  - Hazard radius index        │ │  - Flags viral rumors         │
-│  - Cleans Urdu text & media   │ │  - Turns off DeepThink (R1)   │ │  - Priority level & urgency   │ │  - Political bias detection   │
-│  - High-speed batch push      │ │  - MutationObserver stream    │ │  - Department accountability  │ │  - Authenticity telemetry     │
-└───────────────────────────────┘ └───────────────────────────────┘ └───────────────────────────────┘ └───────────────────────────────┘
-                                                              │
-                                                              ▼
-                                  ┌────────────────────────────────────────────────────────┐
-                                  │               FRONTEND CYBER CANVAS UI                 │
-                                  │  - Infinite pannable/zoomable node canvas              │
-                                  │  - Interactive Pipeline Nodes (Scraper, AI, Term)      │
-                                  │  - Dynamic Edge Flow particle animations               │
-                                  │  - Resizable Bottom Terminal Dock with Log Filters     │
-                                  │  - Glowing Cyan Hyderabad Radar HUD with Laser Sweep   │
-                                  │  - Rich News & Civic Intelligence Detail Modal         │
-                                  └────────────────────────────────────────────────────────┘
+                                  +--------------------------------------------------------+
+                                  |              PYTHON FASTAPI ORCHESTRATOR               |
+                                  |              (Port 8000 // WebSocket Hub)              |
+                                  |  - Central State & Flow Pipeline Engine                |
+                                  |  - SQLite Async DB (grievance_hyderabad.db)            |
+                                  |  - WebSocket Hub (/ws/hub) bi-directional broadcast    |
+                                  |  - Dynamic Extension Auto-Discovery & Health Checks   |
+                                  |  - Priority Intercept & Custom DeepSeek Dispatcher     |
+                                  +---------------------------+----------------------------+
+                                                              |
+                    +-------------------------+---------------+---------------+-------------------------+
+                    | WebSocket               | WebSocket                     | WebSocket               | WebSocket
+                    v                         v                               v                         v
++-------------------------------+ +-------------------------------+ +-------------------------------+ +-------------------------------+
+|      CHROME EXTENSION 1       | |      CHROME EXTENSION 2       | |      CHROME EXTENSION 3       | |      CHROME EXTENSION 4       |
+|    Hyderabad News Scraper     | |     DeepSeek AI Automator     | |    Civic Severity Analyzer    | |   Regional Fact-Checker Ext   |
+|  - Multi-tab scraping loop    | |  - Injected DOM controller    | |  - Civic hazard scoring       | |  - Cross-verifies claims      |
+|  - Traverses new links        | |    into chat.deepseek.com     | |  - Hazard radius index        | |  - Flags viral rumors         |
+|  - Cleans Urdu text & media   | |  - Turns off DeepThink (R1)   | |  - Priority level & urgency   | |  - Political bias detection   |
+|  - High-speed batch push      | |  - MutationObserver stream    | |  - Department accountability  | |  - Authenticity telemetry     |
++-------------------------------+ +-------------------------------+ +-------------------------------+ +-------------------------------+
+                                                              |
+                                                              v
+                                  +--------------------------------------------------------+
+                                  |                FRONTEND CANVAS UI                      |
+                                  |  - Infinite pannable/zoomable node canvas              |
+                                  |  - Interactive Pipeline Nodes (Scraper, AI, Term)      |
+                                  |  - Dynamic Edge Flow particle animations               |
+                                  |  - Resizable Bottom Terminal Dock with Log Filters     |
+                                  |  - Glowing Cyan Hyderabad Radar HUD with Laser Sweep   |
+                                  |  - Rich News & Civic Intelligence Detail Modal         |
+                                  +--------------------------------------------------------+
 ```
 
 ---
 
-## 🧩 The 4 Chrome Extensions
+## The 4 Chrome Extensions
 
-All extensions are located under `/extensions/` and conform to **Google Chrome Manifest V3**:
+All extensions reside under `/extensions/` and conform to **Google Chrome Manifest V3**:
 
 | Extension | Directory | Badge / Theme | Core Functionality |
 | :--- | :--- | :--- | :--- |
-| **Hyderabad News Scraper** | `extensions/bihar_news_scraper` | `cyan` / Broadcast | Automatically opens and cycles through new Hyderabad news links across major portals (*Daily Express, Daily Jang, Dawn, Kawish*), extracts full text, dates, zone markers, and media URLs, and pushes them directly to the backend intake queue. |
-| **DeepSeek AI Automator** | `extensions/deepseek_automator` | `violet` / Neural | Injects a robust runtime script into `chat.deepseek.com`. Bypasses 45s DeepThink latency to achieve 3-5 second structured JSON classification. Intercepts newly generated responses via `MutationObserver` without requiring paid API keys. |
-| **Civic Severity Analyzer** | `extensions/civic_severity_scorer` | `emerald` / Shield | Evaluates real-time civic impact, calculating urgency (Level 1–5), citizen hazard ratings, infrastructure vulnerability, and mapping responsible civic authorities (*WASA Hyderabad, HESCO, HMC, SSWMB, LUH*). |
-| **Regional Fact-Checker** | `extensions/regional_fact_checker` | `sapphire` / Verify | Cross-verifies regional claims, detects unverified viral rumors, and filters out partisan political speeches from genuine civic grievances. |
+| **Hyderabad News Scraper** | `extensions/hyderabad_news_scraper` | `cyan` / Broadcast | Automatically traverses and cycles through new Hyderabad regional news links across major portals (*Daily Express, Daily Jang, Dawn, Kawish*), extracts full text, publish timestamps, zone tags, and media URLs, and pushes them directly to the backend intake queue. |
+| **DeepSeek AI Automator** | `extensions/deepseek_automator` | `violet` / Neural | Injects a dedicated DOM controller into `chat.deepseek.com`. Bypasses long DeepThink reasoning latency to achieve 3–5 second structured JSON classification. Intercepts newly streamed responses via `MutationObserver` without requiring paid API tokens. |
+| **Civic Severity Analyzer** | `extensions/civic_severity_scorer` | `emerald` / Shield | Evaluates real-time civic impact, calculating urgency (Level 1–5), citizen hazard indices, infrastructure vulnerability, and mapping responsible civic authorities (*WASA Hyderabad, HESCO, HMC, SSWMB, LUH*). |
+| **Regional Fact-Checker** | `extensions/regional_fact_checker` | `sapphire` / Verify | Cross-verifies regional claims, detects unverified viral rumors, and filters out partisan political speeches from actionable civic grievances. |
 
 ---
 
-## 🌐 Interactive Node Canvas & Cyber HUD
+## Interactive Node Canvas and Radar HUD
 
 ### 1. Visual Modular Node Canvas
 - Drag-and-drop interactive nodes: **Scraper Node**, **DeepSeek AI Classifier Node**, and **Terminal Output Node**.
-- Dynamic SVG spline wires with animated glowing particle pulses representing live data transmission.
-- Add and remove custom nodes dynamically from the top toolbar.
+- Dynamic SVG spline wires with animated particle pulses representing active data transmission.
+- Interactive node palette: add, remove, and rewire pipeline nodes dynamically from the canvas controls.
 
-### 2. Glowing Bluish-Cyan Hyderabad Radar HUD
-- Located on the far right of the terminal dock, formatted as a **dynamic 1:1 square dock**.
-- **Resizing Resilience**: Resizing the terminal dock (via the drag handle or toggle buttons) automatically resizes the right dock while preserving its exact square aspect ratio.
-- **Accurate Hyderabad Map**: Glowing cyan boundary with the River Indus (Sindh Darya) and Kotri Barrage traversed along the western flank.
-- **Continuous Laser Scanner**: A high-tech horizontal laser line sweeps top-to-bottom across Hyderabad with a cyan drop-shadow.
-- **360° Conic Sweep**: A radar sweep beam rotates around the city.
+### 2. Hyderabad Geo-Radar HUD
+- Integrated into the bottom terminal dock with a responsive **1:1 square aspect ratio**.
+- **Accurate Hyderabad Boundaries**: Displays the Sindh Darya (Indus River) corridor and Kotri Barrage flank.
+- **Continuous Laser Scanner**: A high-tech horizontal laser line sweeps top-to-bottom across municipal zones.
+- **360-Degree Conic Sweep**: Real-time rotating radar beam providing dynamic spatial surveillance.
 - **Active Zone Hotspots**: Pulsing beacon rings over City / Saddar, Qasimabad, Latifabad, Autobahn Road, Paretabad / Phuleli, Tando Jam, and Kotri / Jamshoro with live telemetry hover tooltips.
 
 ---
 
-## 🚀 Quick Start (One-Command Runner)
+## Quick Start (One-Command Runner)
 
 ### Prerequisites
 - Python 3.10 or higher
 - Google Chrome (or Chromium-based browser)
 
 ### Single Command Launch
-From the project root, run:
+From the project root directory, run:
 ```bash
 ./run.sh
 ```
-*(On Windows or alternative shells, run `python run.py`)*
+*(On Windows PowerShell or Command Prompt, run `python run.py`)*
 
-The script will:
-1. Automatically create and configure the `.venv` virtual environment.
+The launch runner will:
+1. Automatically verify and configure the Python environment.
 2. Install all dependencies from `requirements.txt`.
-3. Check and free Port 8000 if occupied by a stale process.
-4. Launch FastAPI & Uvicorn with auto-reload at **[http://localhost:8000](http://localhost:8000)**.
+3. Check and release Port 8000 if occupied by a stale process.
+4. Launch FastAPI and Uvicorn with auto-reload at **[http://localhost:8000](http://localhost:8000)**.
 
 ---
 
-## 📖 Real-World Operating Workflow
+## Real-World Operating Workflow
 
 ### Step 1: Load Extensions in Chrome
 1. Open Google Chrome and navigate to `chrome://extensions/`.
-2. Enable **Developer mode** (toggle in top right).
+2. Enable **Developer mode** via the toggle switch in the upper-right corner.
 3. Click **"Load unpacked"** and select:
-   - `extensions/bihar_news_scraper` (Hyderabad News Scraper)
+   - `extensions/hyderabad_news_scraper` (Hyderabad News Scraper)
    - `extensions/deepseek_automator`
    - *(Optional)* `extensions/civic_severity_scorer`
    - *(Optional)* `extensions/regional_fact_checker`
 
-### Step 2: Open DeepSeek Chat
-1. Open a new tab and go to **[https://chat.deepseek.com](https://chat.deepseek.com)**.
-2. Log in. The **DeepSeek AI Automator** extension connects automatically.
-3. The dashboard navbar at `http://localhost:8000` will turn green: `DeepSeek Ext: Ready / Idle`.
+### Step 2: Connect DeepSeek Web Interface
+1. Open a new Chrome tab and navigate to **[https://chat.deepseek.com](https://chat.deepseek.com)**.
+2. Sign in to your account. The **DeepSeek AI Automator** extension connects automatically via WebSocket.
+3. The dashboard extension bar at `http://localhost:8000` will illuminate: `DeepSeek Ext: Ready / Idle`.
 
-### Step 3: Start Autonomous Pipeline
-1. On the dashboard (`http://localhost:8000`), click **"▶ Start Pipeline"**.
-2. Click **"Scrape"** on the Scraper Node (or click the extension popup).
+### Step 3: Run the Autonomous Pipeline
+1. On the dashboard (`http://localhost:8000`), click **"Pause / Resume Pipeline"**.
+2. Click **"Launch Live Hyderabad Crawler"** on the Scraper Node (or trigger the extension popup).
 3. The scraper visits regional news links, ingests raw articles, streams them to DeepSeek for instant LLM classification, and saves structured civic records to the SQLite database.
-4. Click any news entry in the processed table to view the full **News & Civic Intelligence Detail Modal**.
+4. Click any entry in the processed feed list to inspect the complete **News & Civic Intelligence Detail Modal**.
 
 ---
 
-## ⚡ Priority Intercept (Custom User Queries)
+## Priority Intercept (Custom User Queries)
 
-Need to ask DeepSeek an immediate civic or analytical question without disrupting the automated pipeline?
-1. In the bottom terminal dock, locate the **⚡ Priority Intercept** bar.
-2. Type any question (e.g., *"What are the top hospital complaints at LUH Hyderabad?"* or *"Analyze recent WASA sewage issues on Autobahn Road"*).
+To execute an immediate ad-hoc query against DeepSeek without interrupting background automated ingestion:
+1. In the bottom terminal dock, locate the **Priority Intercept** input field.
+2. Enter an analytical prompt (for example: *"Analyze recent WASA drainage failures along Autobahn Road and recommend mitigation steps"*).
 3. Click **"Send to DeepSeek"**.
-4. The system pauses the automated news queue, injects your query with top priority into DeepSeek, streams the response directly to your terminal, and resumes the automated queue seamlessly.
+4. The system pauses background queue processing, dispatches the prompt with high priority, streams the response directly to the terminal, and resumes the automated queue seamlessly.
 
 ---
 
-## 🗄️ Database Schema & API Reference
+## Database Schema and API Reference
 
 ### SQLite Schema (`backend/grievance_hyderabad.db`)
 - **`raw_news`**: Stores incoming scraped news items (`id`, `title`, `url`, `source`, `raw_text`, `published_at`, `status`).
@@ -187,22 +193,22 @@ Need to ask DeepSeek an immediate civic or analytical question without disruptin
 ### Key REST API Endpoints
 | Method | Endpoint | Description |
 | :--- | :--- | :--- |
-| `GET` | `/api/status` | Returns pipeline running state and extension statuses. |
+| `GET` | `/api/status` | Returns pipeline running state and extension connection health. |
 | `GET` | `/api/health` | Liveness health probe for orchestrator services. |
-| `GET` | `/api/metrics` | System telemetry metrics (ingestion rates, ratios, worker counts). |
+| `GET` | `/api/metrics` | Telemetry metrics (ingestion rates, processing ratio, worker counts). |
 | `GET` | `/api/analytics/district_hotspots` | Aggregated grievance density ranking across Hyderabad zones. |
-| `POST` | `/api/pipeline/toggle` | Starts or pauses the global pipeline. |
+| `POST` | `/api/pipeline/toggle` | Toggles global pipeline running state. |
 | `GET` | `/api/raw_news` | Retrieves queued raw news items. |
 | `GET` | `/api/processed_news` | Retrieves classified civic grievance intelligence records. |
-| `POST` | `/api/ai/inject_query` | Priority Intercept query dispatcher to DeepSeek. |
-| `POST` | `/api/db/reset` | Resets the SQLite database tables and queues. |
-| `WS` | `/ws/hub` | Real-time bi-directional WebSocket hub for extensions and frontend. |
+| `POST` | `/api/ai/inject_query` | Dispatches priority intercept queries to DeepSeek. |
+| `POST` | `/api/db/reset` | Resets SQLite database tables and clears queues. |
+| `WS` | `/ws/hub` | Bi-directional WebSocket hub connecting browser extensions and frontend UI. |
 
 ---
 
-## 🧪 Automated Testing & Continuous Integration
+## Automated Testing and Validation
 
-The platform includes an automated testing suite run on Python 3.10, 3.11, 3.12, and 3.13:
+The platform includes an automated testing suite run across Python 3.10+:
 
 ```bash
 # Run unit test suite
@@ -214,7 +220,7 @@ python test_system.py
 
 ---
 
-## 👥 Engineering Team & Contributors
+## Engineering Team and Contributors
 
 Developed as an iterative, cross-functional civic intelligence platform:
 
@@ -224,8 +230,8 @@ Developed as an iterative, cross-functional civic intelligence platform:
 
 ---
 
-## 🔒 Proprietary License
+## Proprietary License
 
 **Copyright (c) 2026 Team Quantum / Hyderabad Citizen Echo Project. All rights reserved.**
 
-This software is strictly proprietary and confidential. Unauthorized copying, modification, redistribution, or commercial use is strictly prohibited. See the [LICENSE](LICENSE) file for complete terms.
+This software is proprietary and confidential. Unauthorized copying, modification, redistribution, or commercial deployment is strictly prohibited. See the [LICENSE](LICENSE) file for complete terms.

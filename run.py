@@ -51,7 +51,7 @@ def main():
     print("Swagger API Docs:      http://localhost:8000/docs")
     print("-" * 65)
     print("Chrome Extensions (Load in chrome://extensions):")
-    print(f"  1. Hyderabad News Scraper: {os.path.join(BASE_DIR, 'extensions', 'bihar_news_scraper')}")
+    print(f"  1. Hyderabad News Scraper: {os.path.join(BASE_DIR, 'extensions', 'hyderabad_news_scraper')}")
     print(f"  2. DeepSeek Automator:    {os.path.join(BASE_DIR, 'extensions', 'deepseek_automator')}")
     print(f"  3. Severity Analyzer:     {os.path.join(BASE_DIR, 'extensions', 'civic_severity_scorer')}")
     print(f"  4. Fact-Checker Ext:      {os.path.join(BASE_DIR, 'extensions', 'regional_fact_checker')}")

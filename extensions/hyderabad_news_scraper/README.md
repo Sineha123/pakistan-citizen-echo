@@ -1,4 +1,4 @@
-# 🗞️ Hyderabad Regional News Grievance Scraper Extension
+# Hyderabad Regional News Grievance Scraper Extension
 
 High-speed parallel multi-portal crawler Chrome extension for automated monitoring of regional public grievances across Hyderabad, Sindh, Pakistan.
 
@@ -23,7 +23,7 @@ High-speed parallel multi-portal crawler Chrome extension for automated monitori
 1. Open Google Chrome or any Chromium-based browser (Brave, Edge).
 2. Navigate to `chrome://extensions`.
 3. Enable **Developer mode** via the toggle switch in the upper right corner.
-4. Click **Load unpacked** and select this directory: `extensions/bihar_news_scraper`.
+4. Click **Load unpacked** and select this directory: `extensions/hyderabad_news_scraper`.
 5. The extension icon will appear in your Chrome toolbar.
 
 ## Architecture

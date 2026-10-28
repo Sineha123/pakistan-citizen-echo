@@ -1,6 +1,6 @@
 """
 Main FastAPI Application & HTTP/WebSocket Server.
-Orchestrates the entire Bihar News & Public Grievance Extraction Pipeline.
+Orchestrates the entire Hyderabad News & Public Grievance Extraction Pipeline.
 """
 import os
 import io
@@ -320,7 +320,7 @@ async def proxy_rss_feed(url: str = "", district_hint: str = "Hyderabad", source
                 enc_m = re.search(r'<enclosure[^>]+url=["\']([^"\']+)["\']', raw_item, re.I)
                 media_m = re.search(r'<media:content[^>]+url=["\']([^"\']+)["\']', raw_item, re.I)
                 
-                title = re.sub(r'<[^>]+>', '', title_m.group(1)).strip() if title_m else "Bihar Regional News"
+                title = re.sub(r'<[^>]+>', '', title_m.group(1)).strip() if title_m else "Hyderabad Regional News"
                 desc = desc_m.group(1) if desc_m else ""
                 link = link_m.group(1).strip() if link_m else ""
                 
@@ -338,7 +338,7 @@ async def proxy_rss_feed(url: str = "", district_hint: str = "Hyderabad", source
                 
                 ts = int(time.time() * 1000)
                 items.append({
-                    "id": f"bihar_rss_{ts}_{os.urandom(3).hex()}",
+                    "id": f"hyd_rss_{ts}_{os.urandom(3).hex()}",
                     "title": title,
                     "snippet": clean_snippet[:350],
                     "content": clean_snippet,
@@ -589,12 +589,12 @@ async def export_database(target: str = "processed", format: str = "json"):
         return StreamingResponse(
             output,
             media_type="text/csv",
-            headers={"Content-Disposition": f"attachment; filename=bihar_{target}_db_{int(time.time())}.csv"}
+            headers={"Content-Disposition": f"attachment; filename=hyderabad_{target}_db_{int(time.time())}.csv"}
         )
     else:
         return JSONResponse(
             content={"target": target, "count": len(items), "data": items},
-            headers={"Content-Disposition": f"attachment; filename=bihar_{target}_db_{int(time.time())}.json"}
+            headers={"Content-Disposition": f"attachment; filename=hyderabad_{target}_db_{int(time.time())}.json"}
         )
 
 @app.post("/api/db/import")
@@ -640,4 +640,4 @@ async def serve_dashboard():
     if os.path.exists(index_path):
         with open(index_path, "r", encoding="utf-8") as f:
             return HTMLResponse(content=f.read())
-    return HTMLResponse("<h2>Bihar Citizen Echo Dashboard is compiling...</h2>")
+    return HTMLResponse("<h2>Hyderabad Citizen Echo Dashboard is compiling...</h2>")

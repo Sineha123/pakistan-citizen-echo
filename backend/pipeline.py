@@ -320,10 +320,10 @@ class PipelineOrchestrator:
             if not item.get("media_urls"):
                 item["media_urls"] = raw_meta.get("media_urls", [])
             if not item.get("source_name"):
-                item["source_name"] = raw_meta.get("source_name", "Bihar Local Source")
+                item["source_name"] = raw_meta.get("source_name", "Hyderabad Regional Source")
             if not item.get("source_url"):
                 item["source_url"] = raw_meta.get("source_url", "")
-            if not item.get("title") or item.get("title") == "Bihar News Extraction":
+            if not item.get("title") or item.get("title") in ["Bihar News Extraction", "Hyderabad News Extraction"]:
                 item["title"] = raw_meta.get("title", "")
             if not item.get("actual_news"):
                 item["actual_news"] = raw_meta.get("snippet", "")
