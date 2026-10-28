@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "Hyderabad News & Grievance Scraper",
+  "version": "1.0.0",
+  "description": "High-speed news feed, RSS & web scraper for Hyderabad (Pakistan) local news and public grievances.",
+  "permissions": [
+    "storage",
+    "alarms",
+    "tabs",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "ws://localhost:8000/*",
+    "*://*.express.pk/*",
+    "*://*.jang.com.pk/*",
+    "*://*.dawn.com/*",
+    "*://*.thekawish.com/*",
+    "*://*.kawish.com.pk/*",
+    "*://*.tribune.com.pk/*",
+    "*://*.thenews.com.pk/*",
+    "*://news.google.com/*",
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.express.pk/*",
+        "*://*.jang.com.pk/*",
+        "*://*.dawn.com/*",
+        "*://*.thekawish.com/*",
+        "*://*.kawish.com.pk/*",
+        "*://*.tribune.com.pk/*",
+        "*://*.thenews.com.pk/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Hyderabad News & Grievance Scraper",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+}
